@@ -12,6 +12,9 @@ const beVietnamPro = Be_Vietnam_Pro({
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/images/favicon-32x32.png" />
+      </head>
       <body className={beVietnamPro.className}>
         <StyledComponentsRegistry>
           {children}
