@@ -6,7 +6,7 @@ const beVietnamPro = Be_Vietnam_Pro({
   subsets: ['latin'],
   display: 'swap',
   style: ['normal'],
-  weight: ['400', '500', '700'],
+  weight: ['200', '400', '500', '600', '700'],
 });
 
 export default function RootLayout({ children }) {

@@ -1,10 +1,14 @@
 'use client';
 import styled from 'styled-components';
 
+import { COLORS } from '@/utils/constants';
+
 import MaxWidthWrapper from '../MaxWidthWrapper';
 import Image from 'next/image';
 import VisuallyHidden from '../VisuallyHidden';
 import Link from 'next/link';
+import Heading1 from '../Heading1';
+import Button from '../Button';
 
 function Header() {
   return (
@@ -30,12 +34,43 @@ function Header() {
             <VisuallyHidden>Open Menu</VisuallyHidden>
           </OpenMenu>
         </Navigation>
+        <HeroWrapper>
+          <HeroImageWrapper>
+            <HeroImage
+              src="/images/illustration-intro.svg"
+              width={580}
+              height={525}
+              alt="An illustration of manage platform graphs and statistics"
+            />
+          </HeroImageWrapper>
+
+          <HeroContent>
+            <div>
+              <Heading1>
+                Bring everyone together to build better products.
+              </Heading1>
+
+              <SubHeading>
+                Manage makes it simple for software teams to plan day-to-day
+                tasks while keeping the larger team goals in view.
+              </SubHeading>
+            </div>
+
+            <Button>Get Started</Button>
+          </HeroContent>
+        </HeroWrapper>
       </InnerWrapper>
     </OuterWrapper>
   );
 }
 
-const OuterWrapper = styled.div``;
+const OuterWrapper = styled.div`
+  background-image: url('/images/bg-tablet-pattern.svg');
+  background-repeat: no-repeat;
+  background-size: 400px;
+  background-position-x: 70px;
+  background-position-y: -50px;
+`;
 
 const InnerWrapper = styled(MaxWidthWrapper)`
   padding-top: 45px;
@@ -53,6 +88,50 @@ const OpenMenu = styled.button`
 
   padding: 16px;
   margin: -16px;
+`;
+
+const HeroWrapper = styled.div`
+  padding-top: 48px;
+  margin: 0 -24px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+`;
+
+const HeroImageWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  padding: 0 28px;
+  max-width: 540px;
+`;
+
+const HeroImage = styled(Image)`
+  height: 100%;
+`;
+
+const HeroContent = styled.div`
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  gap: 28px;
+
+  padding-bottom: 93px;
+
+  background-image: url('/images/bg-tablet-pattern.svg');
+  background-size: 270px;
+  background-repeat: no-repeat;
+  background-position: 230px 100px;
+`;
+
+const SubHeading = styled.p`
+  color: ${COLORS.Secondary23};
+  padding: 0 24px;
+  padding-top: 10px;
+  font-weight: 200;
+  opacity: 50.25%;
 `;
 
 export default Header;
