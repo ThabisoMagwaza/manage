@@ -48,7 +48,6 @@ const GlobalStyles = createGlobalStyle`
 
   body {
     font-family: 'Be Vietnam Pro', sans-serif;
-    background: var(--color-gray-98);
   }
 
 `;
