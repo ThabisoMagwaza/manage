@@ -8,7 +8,13 @@ function Carousel({ children }) {
 
   return (
     <Wrapper>
-      {children[activeIndex]}
+      <ElementWrapper>
+        {children.map((el, index) => (
+          <Element index={activeIndex} key={index}>
+            {el}
+          </Element>
+        ))}
+      </ElementWrapper>
 
       <NavButtons>
         {children.map((_, index) => (
@@ -24,6 +30,20 @@ function Carousel({ children }) {
     </Wrapper>
   );
 }
+
+const Element = styled.div`
+  transform: translateX(${({ index }) => `-${index * 100}%`});
+  min-width: 100%;
+
+  transition: transform 0.3s ease-in;
+`;
+
+const ElementWrapper = styled.div`
+  padding-top: 36px;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+`;
 
 const Wrapper = styled.div`
   display: flex;
