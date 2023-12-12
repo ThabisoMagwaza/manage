@@ -3,12 +3,12 @@ import styled from 'styled-components';
 
 import { COLORS } from '@/utils/constants';
 
-function Heading1({ children }) {
-  return <Heading>{children}</Heading>;
+function Heading1({ children, color = COLORS.Secondary23 }) {
+  return <Heading style={{ '--color': color }}>{children}</Heading>;
 }
 
 const Heading = styled.h1`
-  color: ${COLORS.Secondary23};
+  color: var(--color);
   font-weight: 600;
   line-height: 1.1;
 

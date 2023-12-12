@@ -10,7 +10,7 @@ function Carousel({ children }) {
     <Wrapper>
       <ElementWrapper>
         {children.map((el, index) => (
-          <Element index={activeIndex} key={index}>
+          <Element $index={activeIndex} key={index}>
             {el}
           </Element>
         ))}
@@ -32,7 +32,7 @@ function Carousel({ children }) {
 }
 
 const Element = styled.div`
-  transform: translateX(${({ index }) => `-${index * 100}%`});
+  transform: translateX(${({ $index }) => `-${$index * 100}%`});
   min-width: 100%;
 
   transition: transform 0.3s ease-in;
