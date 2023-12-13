@@ -10,6 +10,7 @@ import Link from 'next/link';
 import Heading1 from '../Heading1';
 import Button from '../Button';
 import Logo from '../Logo';
+import MobilelMenu from '../MobilelMenu';
 
 function Header() {
   return (
@@ -20,15 +21,17 @@ function Header() {
             <Logo />
           </LogoWrapper>
 
-          <OpenMenu>
-            <Image
-              src="/images/icon-hamburger.svg"
-              width={25}
-              height={18}
-              alt=""
-            />
-            <VisuallyHidden>Open Menu</VisuallyHidden>
-          </OpenMenu>
+          <MobilelMenu>
+            <OpenMenu>
+              <Image
+                src="/images/icon-hamburger.svg"
+                width={25}
+                height={18}
+                alt=""
+              />
+              <VisuallyHidden>Open Menu</VisuallyHidden>
+            </OpenMenu>
+          </MobilelMenu>
         </Navigation>
         <HeroWrapper>
           <HeroImageWrapper>
@@ -94,6 +97,10 @@ const OpenMenu = styled.button`
 
   padding: 16px;
   margin: -16px;
+
+  &[data-state='open'] {
+    display: none;
+  }
 `;
 
 const HeroWrapper = styled.div`
