@@ -42,7 +42,10 @@ const GlobalStyles = createGlobalStyle`
     --color-secondary-23: hsl(228, 39%, 23%);
     --color-secondary-63: hsl(227, 12%, 61%);
 
+    --color-gray-55: hsl(0, 0%, 55%);
     --color-gray-98: hsl(0, 0%, 98%);
+
+
     --color-white: hsl(0, 0%, 100%);
   }
 

@@ -9,20 +9,16 @@ import VisuallyHidden from '../VisuallyHidden';
 import Link from 'next/link';
 import Heading1 from '../Heading1';
 import Button from '../Button';
+import Logo from '../Logo';
 
 function Header() {
   return (
     <OuterWrapper>
       <InnerWrapper>
         <Navigation>
-          <Link href="/">
-            <Image
-              src="/images/logo.svg"
-              width={146}
-              height={24}
-              alt="Manage logo - Navigate home"
-            />
-          </Link>
+          <LogoWrapper href="/">
+            <Logo />
+          </LogoWrapper>
 
           <OpenMenu>
             <Image
@@ -41,6 +37,7 @@ function Header() {
               width={580}
               height={525}
               alt="An illustration of manage platform graphs and statistics"
+              priority={true}
             />
           </HeroImageWrapper>
 
@@ -64,6 +61,14 @@ function Header() {
   );
 }
 
+const LogoWrapper = styled(Link)`
+  text-decoration: none;
+  width: 110px;
+  height: 18px;
+
+  color: ${COLORS.Secondary23};
+`;
+
 const OuterWrapper = styled.div`
   background-image: url('/images/bg-tablet-pattern.svg');
   background-repeat: no-repeat;
@@ -85,6 +90,7 @@ const Navigation = styled.nav`
 const OpenMenu = styled.button`
   border: none;
   background: transparent;
+  cursor: pointer;
 
   padding: 16px;
   margin: -16px;
