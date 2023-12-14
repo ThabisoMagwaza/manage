@@ -1,5 +1,7 @@
 'use client';
 import React from 'react';
+import { QUERIES } from '@/utils/constants';
+
 import styled from 'styled-components';
 import DotButton from '../DotButton';
 
@@ -36,6 +38,12 @@ const Element = styled.div`
   min-width: 100%;
 
   transition: transform 0.3s ease-in;
+
+  max-width: 540px;
+
+  @media ${QUERIES.mobileAndUp} {
+    min-width: 540px;
+  }
 `;
 
 const ElementWrapper = styled.div`
@@ -43,6 +51,11 @@ const ElementWrapper = styled.div`
   width: 100%;
   overflow: hidden;
   display: flex;
+
+  @media ${QUERIES.mobileAndUp} {
+    gap: 30px;
+    overflow: scroll;
+  }
 `;
 
 const Wrapper = styled.div`
@@ -55,6 +68,10 @@ const NavButtons = styled.div`
   display: flex;
   gap: 5px;
   justify-content: center;
+
+  @media ${QUERIES.mobileAndUp} {
+    display: none;
+  }
 `;
 
 export default Carousel;
