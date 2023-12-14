@@ -1,4 +1,5 @@
 'use client';
+import Link from 'next/link';
 import styled from 'styled-components';
 
 import { COLORS, QUERIES } from '@/utils/constants';
@@ -6,7 +7,6 @@ import { COLORS, QUERIES } from '@/utils/constants';
 import MaxWidthWrapper from '../MaxWidthWrapper';
 import Image from 'next/image';
 import VisuallyHidden from '../VisuallyHidden';
-import Link from 'next/link';
 import Heading1 from '../Heading1';
 import Button from '../Button';
 import Logo from '../Logo';
@@ -21,6 +21,29 @@ function Header() {
             <Logo />
           </LogoWrapper>
 
+          <DesktopNavWrapper>
+            <NavList>
+              <li>
+                <NavLink href="/">Product</NavLink>
+              </li>
+              <li>
+                <NavLink href="/">Pricing</NavLink>
+              </li>
+              <li>
+                <NavLink href="/">About Us</NavLink>
+              </li>
+              <li>
+                <NavLink href="/">Careers</NavLink>
+              </li>
+              <li>
+                <NavLink href="/">Commnunity</NavLink>
+              </li>
+            </NavList>
+          </DesktopNavWrapper>
+          <HeaderCtaWrapper>
+            <Button>Get Started</Button>
+          </HeaderCtaWrapper>
+
           <MobilelMenu>
             <OpenMenu>
               <Image
@@ -33,6 +56,7 @@ function Header() {
             </OpenMenu>
           </MobilelMenu>
         </Navigation>
+
         <HeroWrapper>
           <HeroContent>
             <div>
@@ -63,6 +87,35 @@ function Header() {
     </OuterWrapper>
   );
 }
+
+const NavLink = styled(Link)`
+  text-decoration: none;
+  font-size: ${13 / 16}rem;
+  font-weight: 500;
+  color: ${COLORS.Secondary23};
+`;
+
+const NavList = styled.ul`
+  list-style: none;
+  display: flex;
+  gap: 32px;
+`;
+
+const DesktopNavWrapper = styled.nav`
+  display: none;
+
+  @media ${QUERIES.mobileAndUp} {
+    display: revert;
+  }
+`;
+
+const HeaderCtaWrapper = styled.div`
+  display: none;
+
+  @media ${QUERIES.tabletAndUp} {
+    display: revert;
+  }
+`;
 
 const LogoWrapper = styled(Link)`
   text-decoration: none;
@@ -105,12 +158,17 @@ const OuterWrapper = styled.div`
 
 const InnerWrapper = styled(MaxWidthWrapper)`
   padding-top: 45px;
+
+  @media ${QUERIES.tabletAndUp} {
+    padding-top: 56px;
+  }
 `;
 
 const Navigation = styled.nav`
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
+  align-items: center;
 `;
 
 const OpenMenu = styled.button`
@@ -188,6 +246,10 @@ const HeroContent = styled.div`
     background-position-x: 60vw;
     background-position-y: -5px;
   }
+
+  @media ${QUERIES.tabletAndUp} {
+    gap: 40px;
+  }
 `;
 
 const SubHeading = styled.p`
@@ -199,6 +261,10 @@ const SubHeading = styled.p`
 
   @media ${QUERIES.mobileAndUp} {
     padding-left: 0;
+  }
+
+  @media ${QUERIES.tabletAndUp} {
+    padding-top: 16px;
   }
 `;
 
