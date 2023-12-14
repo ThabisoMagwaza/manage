@@ -159,8 +159,16 @@ const OuterWrapper = styled.div`
 const InnerWrapper = styled(MaxWidthWrapper)`
   padding-top: 45px;
 
+  @media ${QUERIES.mobileAndUp} {
+    padding-bottom: 56px;
+  }
+
   @media ${QUERIES.tabletAndUp} {
     padding-top: 56px;
+  }
+
+  @media ${QUERIES.tabletAndUp} {
+    padding-bottom: 132px;
   }
 `;
 
@@ -199,6 +207,11 @@ const HeroWrapper = styled.div`
   @media ${QUERIES.mobileAndUp} {
     flex-direction: row;
   }
+
+  @media ${QUERIES.tabletAndUp} {
+    padding-top: 120px;
+    justify-content: space-between;
+  }
 `;
 
 const HeroImageWrapper = styled.div`
@@ -236,7 +249,7 @@ const HeroContent = styled.div`
 
   @media ${QUERIES.mobileAndUp} {
     background-image: none;
-    max-width: 445px;
+    max-width: 500px;
     text-align: start;
     align-items: flex-start;
     margin-left: 24px;
@@ -265,6 +278,7 @@ const SubHeading = styled.p`
 
   @media ${QUERIES.tabletAndUp} {
     padding-top: 16px;
+    max-width: 350px;
   }
 `;
 

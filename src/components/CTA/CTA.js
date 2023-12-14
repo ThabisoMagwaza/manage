@@ -3,16 +3,16 @@ import styled from 'styled-components';
 import { COLORS } from '@/utils/constants';
 
 import MaxWidthWrapper from '../MaxWidthWrapper';
-import Heading1 from '../Heading1';
+import Heading2 from '../Heading2';
 import Button from '../Button';
 
 function CTA() {
   return (
     <OuterWrapper>
       <InnerWrapper>
-        <Heading1 color={COLORS.White}>
+        <Heading2 color={COLORS.White}>
           Simplify how your team works today.
-        </Heading1>
+        </Heading2>
 
         <Button variant="inverted">Get Started</Button>
       </InnerWrapper>

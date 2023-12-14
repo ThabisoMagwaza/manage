@@ -1,6 +1,6 @@
 'use client';
 import styled from 'styled-components';
-import { COLORS } from '@/utils/constants';
+import { COLORS, QUERIES } from '@/utils/constants';
 
 import MaxWidthWrapper from '../MaxWidthWrapper';
 import Heading2 from '../Heading2';
@@ -46,6 +46,10 @@ const InnerWrapper = styled(MaxWidthWrapper)`
   display: flex;
   flex-direction: column;
   gap: 54px;
+
+  @media ${QUERIES.mobileAndUp} {
+    flex-direction: row;
+  }
 `;
 
 const SubSectionOne = styled.div`
@@ -53,6 +57,11 @@ const SubSectionOne = styled.div`
   display: flex;
   flex-direction: column;
   gap: 16px;
+
+  @media ${QUERIES.mobileAndUp} {
+    text-align: start;
+    max-width: 500px;
+  }
 `;
 
 const SubSectionTwo = styled.div`
@@ -71,6 +80,10 @@ const Paragraph = styled.p`
   line-height: 1.6;
 
   opacity: 50.25%;
+
+  @media ${QUERIES.mobileAndUp} {
+    max-width: 350px;
+  }
 `;
 
 export default Features;
