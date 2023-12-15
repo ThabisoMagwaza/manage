@@ -1,5 +1,7 @@
 'use client';
 import styled from 'styled-components';
+import { QUERIES } from '@/utils/constants';
+
 import TestimonialCard from '../TestimonialCard';
 import Heading2 from '../Heading2';
 import Carousel from '../Carousel';
@@ -55,6 +57,11 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 62px;
+
+  @media ${QUERIES.mobileAndUp} {
+    margin-left: 0;
+    margin-right: 0;
+  }
 `;
 
 const CarouselWrapper = styled.div`

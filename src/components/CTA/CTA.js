@@ -56,7 +56,7 @@ const InnerWrapper = styled(MaxWidthWrapper)`
     flex-direction: row;
     justify-content: space-between;
 
-    padding: 0;
+    padding: 0 24px;
     height: 220px;
   }
 `;

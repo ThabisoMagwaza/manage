@@ -1,6 +1,6 @@
 'use client';
 import styled from 'styled-components';
-import { COLORS } from '@/utils/constants';
+import { COLORS, QUERIES } from '@/utils/constants';
 
 import MaxWidthWrapper from '../MaxWidthWrapper';
 import Link from 'next/link';
@@ -16,8 +16,13 @@ function Footer() {
     <Wrapper>
       <InnerWrapper>
         <FormWrapper>
-          <Input placeholder="Update your inbox..." />
-          <Submit>Go</Submit>
+          <Form>
+            <Input placeholder="Update your inbox..." />
+            <Submit>Go</Submit>
+          </Form>
+          <CopyrightDesktop>
+            Copyright 2020. All Rights Reserved
+          </CopyrightDesktop>
         </FormWrapper>
 
         <Navigation>
@@ -45,7 +50,7 @@ function Footer() {
             </NavListItem>
           </NavList>
 
-          <SocialsNavList>
+          <SocialNavListMobile>
             <SocialsNavListItem>
               <SocialLink href="/">
                 <Facebook />
@@ -71,7 +76,7 @@ function Footer() {
                 <Instagram />
               </SocialLink>
             </SocialsNavListItem>
-          </SocialsNavList>
+          </SocialNavListMobile>
         </Navigation>
 
         <LogoSection>
@@ -79,12 +84,46 @@ function Footer() {
             <Logo />
           </LogoWrapper>
 
-          <Copyright>Copyright 2020. All Rights Reserved</Copyright>
+          <CopyrightMobile>Copyright 2020. All Rights Reserved</CopyrightMobile>
+
+          <SocialNavListDesktop>
+            <SocialsNavListItem>
+              <SocialLink href="/">
+                <Facebook />
+              </SocialLink>
+            </SocialsNavListItem>
+            <SocialsNavListItem>
+              <SocialLink href="/">
+                <YouTube />
+              </SocialLink>
+            </SocialsNavListItem>
+            <SocialsNavListItem>
+              <SocialLink href="/">
+                <Twitter />
+              </SocialLink>
+            </SocialsNavListItem>
+            <SocialsNavListItem>
+              <SocialLink href="/">
+                <Pintrest />
+              </SocialLink>
+            </SocialsNavListItem>
+            <SocialsNavListItem>
+              <SocialLink href="/">
+                <Instagram />
+              </SocialLink>
+            </SocialsNavListItem>
+          </SocialNavListDesktop>
         </LogoSection>
       </InnerWrapper>
     </Wrapper>
   );
 }
+
+const FormWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
 
 const Copyright = styled.p`
   font-size: ${13 / 16}rem;
@@ -92,11 +131,29 @@ const Copyright = styled.p`
   opacity: 50.25%;
 `;
 
+const CopyrightMobile = styled(Copyright)`
+  @media ${QUERIES.tabletAndUp} {
+    display: none;
+  }
+`;
+
+const CopyrightDesktop = styled(Copyright)`
+  display: none;
+  @media ${QUERIES.tabletAndUp} {
+    display: revert;
+  }
+`;
+
 const LogoSection = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 50px;
+
+  @media ${QUERIES.tabletAndUp} {
+    justify-content: space-between;
+    align-items: flex-start;
+  }
 `;
 
 const LogoWrapper = styled.div`
@@ -114,6 +171,11 @@ const SocialLink = styled(Link)`
 const SocialsNavListItem = styled.li`
   width: 32px;
   height: 32px;
+
+  @media ${QUERIES.tabletAndUp} {
+    width: 20px;
+    height: 20px;
+  }
 `;
 
 const SocialsNavList = styled.ul`
@@ -121,6 +183,21 @@ const SocialsNavList = styled.ul`
   display: flex;
   justify-content: center;
   gap: 32px;
+`;
+
+const SocialNavListMobile = styled(SocialsNavList)`
+  @media ${QUERIES.tabletAndUp} {
+    display: none;
+  }
+`;
+
+const SocialNavListDesktop = styled(SocialsNavList)`
+  display: none;
+
+  @media ${QUERIES.tabletAndUp} {
+    display: flex;
+    gap: 13px;
+  }
 `;
 
 const NavLink = styled(Link)`
@@ -149,9 +226,13 @@ const Navigation = styled.nav`
   gap: 50px;
 `;
 
-const FormWrapper = styled.form`
+const Form = styled.form`
   display: flex;
   gap: 8px;
+
+  @media ${QUERIES.mobileAndUp} {
+    align-self: center;
+  }
 `;
 
 const Input = styled.input`
@@ -166,6 +247,10 @@ const Input = styled.input`
   &::placeholder {
     color: ${COLORS.Gray55};
     font-size: inherit;
+  }
+
+  @media ${QUERIES.mobileAndUp} {
+    width: 200px;
   }
 `;
 
@@ -189,6 +274,10 @@ const InnerWrapper = styled(MaxWidthWrapper)`
   display: flex;
   flex-direction: column;
   gap: 54px;
+
+  @media ${QUERIES.tabletAndUp} {
+    flex-direction: row-reverse;
+  }
 `;
 
 export default Footer;
