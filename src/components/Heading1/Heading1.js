@@ -10,7 +10,7 @@ function Heading1({ children, color = COLORS.Secondary23 }) {
 const Heading = styled.h1`
   color: var(--color);
   font-weight: 600;
-  line-height: 1;
+  line-height: 1.2;
 
   font-size: ${40 / 16}rem;
 
