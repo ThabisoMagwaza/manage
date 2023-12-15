@@ -9,7 +9,7 @@ import Button from '../Button';
 
 function Testimonials() {
   return (
-    <Wrapper>
+    <>
       <Heading2>What they&apos;ve said</Heading2>
 
       <CarouselWrapper>
@@ -46,7 +46,7 @@ function Testimonials() {
           <Button>Get Started</Button>
         </ButtonContainer>
       </CarouselWrapper>
-    </Wrapper>
+    </>
   );
 }
 
