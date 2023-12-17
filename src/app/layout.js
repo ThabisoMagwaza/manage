@@ -5,7 +5,7 @@ import { Be_Vietnam_Pro } from 'next/font/google';
 const beVietnamPro = Be_Vietnam_Pro({
   subsets: ['latin'],
   display: 'swap',
-  style: ['normal'],
+  style: ['normal', 'italic'],
   weight: ['200', '400', '500', '600', '700'],
 });
 

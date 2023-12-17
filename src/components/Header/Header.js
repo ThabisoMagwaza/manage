@@ -93,6 +93,10 @@ const NavLink = styled(Link)`
   font-size: ${13 / 16}rem;
   font-weight: 500;
   color: ${COLORS.Secondary23};
+
+  &:hover {
+    opacity: 50%;
+  }
 `;
 
 const NavList = styled.ul`
@@ -123,6 +127,11 @@ const LogoWrapper = styled(Link)`
   height: 18px;
 
   color: ${COLORS.Secondary23};
+
+  @media ${QUERIES.tabletAndUp} {
+    width: 147px;
+    height: 24px;
+  }
 `;
 
 const OuterWrapper = styled.div`

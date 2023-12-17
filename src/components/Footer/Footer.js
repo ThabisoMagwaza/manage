@@ -1,5 +1,8 @@
 'use client';
+import React from 'react';
 import styled from 'styled-components';
+import validator from 'validator';
+
 import { COLORS, QUERIES } from '@/utils/constants';
 
 import MaxWidthWrapper from '../MaxWidthWrapper';
@@ -12,12 +15,46 @@ import Instagram from '../Instagram';
 import Logo from '../Logo';
 
 function Footer() {
+  const [email, setEmail] = React.useState('');
+  const [touched, setTouched] = React.useState(false);
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+
+    if (!validator.isEmail(email)) {
+      return;
+    }
+
+    alert('Email successfuly sent');
+
+    setEmail('');
+    setTouched(false);
+  };
+
+  const showError = !validator.isEmail(email) && touched;
+
   return (
     <Wrapper>
       <InnerWrapper>
         <FormWrapper>
-          <Form>
-            <Input placeholder="Update your inbox..." />
+          <Form onSubmit={onSubmit}>
+            <InputWrapper>
+              <Input
+                style={{
+                  '--color':
+                    (showError && COLORS.Accent59) || COLORS.Secondary23,
+                  '--border': (showError && COLORS.Accent59) || 'transparent',
+                }}
+                onChange={(e) => setEmail(e.target.value)}
+                onBlur={() => setTouched(true)}
+                value={email}
+                placeholder="Update your inbox..."
+                type="email"
+              />
+              {showError && (
+                <ErrorMessage>Please insert a valid email</ErrorMessage>
+              )}
+            </InputWrapper>
             <Submit>Go</Submit>
           </Form>
           <CopyrightDesktop>
@@ -119,6 +156,16 @@ function Footer() {
   );
 }
 
+const InputWrapper = styled.div``;
+
+const ErrorMessage = styled.div`
+  font-size: ${10 / 16}rem;
+  font-style: italic;
+  color: ${COLORS.Accent59};
+  padding-left: 16px;
+  margin-top: 4px;
+`;
+
 const FormWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -141,6 +188,7 @@ const CopyrightDesktop = styled(Copyright)`
   display: none;
   @media ${QUERIES.tabletAndUp} {
     display: revert;
+    text-align: end;
   }
 `;
 
@@ -166,6 +214,10 @@ const LogoWrapper = styled.div`
 const SocialLink = styled(Link)`
   text-decoration: none;
   color: ${COLORS.White};
+
+  &:hover {
+    color: ${COLORS.Primary59};
+  }
 `;
 
 const SocialsNavListItem = styled.li`
@@ -203,6 +255,10 @@ const SocialNavListDesktop = styled(SocialsNavList)`
 const NavLink = styled(Link)`
   text-decoration: none;
   color: ${COLORS.White};
+
+  &:hover {
+    color: ${COLORS.Primary59};
+  }
 `;
 
 const NavList = styled.ul`
@@ -240,9 +296,12 @@ const Input = styled.input`
 
   padding: 0 24px;
   border-radius: 1000px;
-  border: none;
+  border: 2px solid var(--border);
+
+  color: var(--color);
 
   font-size: ${13 / 16}rem;
+  height: ${44 / 16}rem;
 
   &::placeholder {
     color: ${COLORS.Gray55};
@@ -261,6 +320,12 @@ const Submit = styled.button`
   border-radius: 1000px;
   background: ${COLORS.Primary59};
   color: ${COLORS.White};
+
+  cursor: pointer;
+
+  &:hover {
+    background: ${COLORS.Primary72};
+  }
 `;
 
 const Wrapper = styled.footer`

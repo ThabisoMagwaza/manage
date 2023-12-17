@@ -62,11 +62,14 @@ const Title = styled.h3`
 const ContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  text-align: start;
   gap: 8px;
+  margin-right: -24px;
 
   @media ${QUERIES.mobileAndUp} {
     gap: 19px;
     max-width: 445px;
+    margin-right: revert;
   }
 `;
 
