@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 
 import Image from 'next/image';
-import { COLORS } from '@/utils/constants';
+import { COLORS, QUERIES } from '@/utils/constants';
 
 function TestimonialCard({ children, avatar, name }) {
   return (
@@ -43,6 +43,10 @@ const Wrapper = styled.div`
 
   position: relative;
   min-width: 100%;
+
+  @media ${QUERIES.mobileAndUp} {
+    height: 220px;
+  }
 `;
 
 const Name = styled.h4`

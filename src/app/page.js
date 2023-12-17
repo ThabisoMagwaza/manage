@@ -45,5 +45,8 @@ const Wrapper = styled.div`
   @media ${QUERIES.tabletAndUp} {
     background-size: revert;
     background-position: -80% 150px;
+
+    margin-bottom: 180px;
+    gap: 146px;
   }
 `;

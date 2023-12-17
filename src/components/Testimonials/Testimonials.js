@@ -9,7 +9,7 @@ import Button from '../Button';
 
 function Testimonials() {
   return (
-    <>
+    <Wrapper>
       <Heading2>What they&apos;ve said</Heading2>
 
       <CarouselWrapper>
@@ -46,22 +46,14 @@ function Testimonials() {
           <Button>Get Started</Button>
         </ButtonContainer>
       </CarouselWrapper>
-    </>
+    </Wrapper>
   );
 }
 
 const Wrapper = styled.div`
-  margin: 62px 18px;
-  text-align: center;
-
   display: flex;
   flex-direction: column;
-  gap: 62px;
-
-  @media ${QUERIES.mobileAndUp} {
-    margin-left: 0;
-    margin-right: 0;
-  }
+  gap: 64px;
 `;
 
 const CarouselWrapper = styled.div`
